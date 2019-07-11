@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600&display=swap");
+.root {
+  padding: 37px;
+  display: grid;
+  grid-template-columns: 40px repeat(11, 1fr);
+  font-family: Raleway;
+}
+h1 {
+  margin-bottom: 0;
+  grid-column: 1 / span 12;
+  font-size: 36px;
+  font-weight: 500;
+  color: #303133;
+}
+
+h4 {
+  margin-top: 0;
+  grid-column: 2 / span 11;
+  font-size: 18px;
+  font-weight: 400;
+  color: #adadad;
+}
+
+.field_container {
+  grid-column: 2 / span 4;
+}
+
+.label {
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-family: Raleway;
+  font-weight: 600;
+  color: #7e8085;
+  text-transform: uppercase;
+  display: block;
+}
+
+.label.error {
+  color: #b00020;
+}
+
+.input_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  line-height: 1.1875em;
+  cursor: text;
+}
+
+.outline {
+  padding-left: 27.375px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 4px;
+  border-color: rgba(0, 0, 0, 0.32);
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.outline.active {
+  border-color: #2f5bea;
+}
+.outline.error {
+  border-color: #b00020;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 18.5px 14px;
+  border: 0;
+  height: 1.1875em;
+  margin: 0;
+  display: block;
+  min-width: 0;
+  width: 100%;
+  box-sizing: content-box;
+  z-index: 1;
+  background: none;
+}
+
+input[type="text"].error {
+  color: #b00020;
+}
+
+input[type="text"]::placeholder {
+  opacity: 0.42;
+}
+
+input[type="text"]:invalid {
+  box-shadow: none;
+}
+
+.helper_text {
+  margin-top: 8px;
+  font-size: 14px;
+  font-family: Raleway;
+  font-weight: 500;
+  color: #adadad;
+}
+
+button[type="submit"] {
+  border: 0;
+  border-radius: 5px;
+  width: 222px;
+  height: 46px;
+  grid-column: 2 / span 5;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  background: #2f5bea;
+}
