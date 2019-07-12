@@ -439,7 +439,7 @@ export const SuccessTeamAFormSegment = ({ children }) => {
       <h1 className={styles.header_text}>Success Team</h1>
       <h4>Expert Counsellor / Test-Prep Help / Other Help / Study Funding</h4>
       <Field
-        name="expertCounsellorHelp"
+        name="expertCounsellorHelpApplicationProcess"
         type="radio"
         label="Need expert counsellor help for programs and application process"
       >
@@ -522,6 +522,228 @@ export const SuccessTeamAFormSegment = ({ children }) => {
                       onChange={onChange}
                       style={{
                         marginRight: idx === options.length - 1 ? 0 : "13px"
+                      }}
+                    />
+                  )
+                )}
+              </div>
+            </div>
+          );
+        }}
+      </Field>
+
+      {children}
+    </React.Fragment>
+  );
+};
+
+export const SuccessTeamBFormSegment = ({ children }) => {
+  const options = [
+    { name: "yes", label: "Yes" },
+    { name: "no", label: "No" },
+    { name: "maybe", label: "Can't Say" }
+  ];
+  const fundMethods = [
+    { name: "familyFund", label: "Family Fund" },
+    { name: "bankEduLoan", label: "Bank/Edu Loan" },
+    { name: "govtLoan", label: "Govt. Loan" },
+    { name: "sponsorship", label: "Sponsorship" },
+    { name: "privateDonor", label: "Private Donor" },
+    { name: "notSure", label: "Not Sure" }
+  ];
+  const budgets = [
+    { name: "0_20000", label: "upto $20000" },
+    { name: "20000_25000", label: "upto $25000" },
+    { name: "25000_30000", label: "upto $30000" },
+    { name: "30000_40000", label: "upto $40000" },
+    { name: "40000_50000", label: "upto $50000" }
+  ];
+  const motivations = [
+    { name: "newLifeExperiences", label: "New Life Experiences" },
+    { name: "immigrationCareer", label: "Immigration & Career" },
+    { name: "seeWorld", label: "See the world" },
+    { name: "betterQualification", label: "Better Qualification" },
+    { name: "learnNewLanguages", label: "Learn New Languages" }
+  ];
+  return (
+    <React.Fragment>
+      <h1 className={styles.header_sequence}>3.</h1>
+      <h1 className={styles.header_text}>Success Team</h1>
+      <h4>Expert Counsellor / Test-Prep Help / Other Help / Study Funding</h4>
+      <Field
+        name="expertCounsellorHelpExtracurriculars"
+        type="radio"
+        label="Need expert help for extracurriculars, essays etc"
+      >
+        {({
+          input: { name, value, onChange, ...restInput },
+          meta,
+          label,
+          formControlProps,
+          ...rest
+        }) => {
+          return (
+            <div
+              className={styles.field_container}
+              style={{ marginTop: "30px", gridColumn: "2 / span 11" }}
+            >
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={name}
+                style={{ marginBottom: "24px" }}
+              >
+                {label}
+              </label>
+              <div>
+                {options.map(
+                  ({ name: switchName, label: switchLabel }, idx) => (
+                    <Switch
+                      key={`${label}_${switchLabel}`}
+                      name={name}
+                      type="radio"
+                      label={switchLabel}
+                      value={switchName}
+                      onChange={onChange}
+                      style={{
+                        marginRight: idx === options.length - 1 ? 0 : "13px",
+                        marginBottom: "10px"
+                      }}
+                    />
+                  )
+                )}
+              </div>
+            </div>
+          );
+        }}
+      </Field>
+      <Field
+        name="studyFundMethod"
+        type="radio"
+        label="How do you want to fund your study(University fees, VISAs etc)"
+      >
+        {({
+          input: { name, value, onChange, ...restInput },
+          meta,
+          label,
+          formControlProps,
+          ...rest
+        }) => {
+          return (
+            <div
+              className={styles.field_container}
+              style={{ marginTop: "44px", gridColumn: "2 / span 11" }}
+            >
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={name}
+              >
+                {label}
+              </label>
+              <div>
+                {fundMethods.map(
+                  ({ name: switchName, label: switchLabel }, idx) => (
+                    <Switch
+                      key={`${label}_${switchLabel}`}
+                      name={name}
+                      type="radio"
+                      label={switchLabel}
+                      value={switchName}
+                      onChange={onChange}
+                      style={{
+                        marginRight:
+                          idx === fundMethods.length - 1 ? 0 : "13px",
+                        marginBottom: "10px"
+                      }}
+                    />
+                  )
+                )}
+              </div>
+            </div>
+          );
+        }}
+      </Field>
+      <Field name="studyBudget" type="radio" label="Study Budget">
+        {({
+          input: { name, value, onChange, ...restInput },
+          meta,
+          label,
+          formControlProps,
+          ...rest
+        }) => {
+          return (
+            <div
+              className={styles.field_container}
+              style={{ marginTop: "44px", gridColumn: "2 / span 11" }}
+            >
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={name}
+              >
+                {label}
+              </label>
+              <div>
+                {budgets.map(
+                  ({ name: switchName, label: switchLabel }, idx) => (
+                    <Switch
+                      key={`${label}_${switchLabel}`}
+                      name={name}
+                      type="radio"
+                      label={switchLabel}
+                      value={switchName}
+                      onChange={onChange}
+                      style={{
+                        marginRight: idx === budgets.length - 1 ? 0 : "13px",
+                        marginBottom: "10px"
+                      }}
+                    />
+                  )
+                )}
+              </div>
+            </div>
+          );
+        }}
+      </Field>
+      <Field name="studyMotivation" type="radio" label="Study Motivation">
+        {({
+          input: { name, value, onChange, ...restInput },
+          meta,
+          label,
+          formControlProps,
+          ...rest
+        }) => {
+          return (
+            <div
+              className={styles.field_container}
+              style={{ marginTop: "44px", gridColumn: "2 / span 11" }}
+            >
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={name}
+              >
+                {label}
+              </label>
+              <div>
+                {motivations.map(
+                  ({ name: switchName, label: switchLabel }, idx) => (
+                    <Switch
+                      key={`${label}_${switchLabel}`}
+                      name={name}
+                      type="radio"
+                      label={switchLabel}
+                      value={switchName}
+                      onChange={onChange}
+                      style={{
+                        marginRight:
+                          idx === motivations.length - 1 ? 0 : "13px",
+                        marginBottom: "10px"
                       }}
                     />
                   )
