@@ -8,6 +8,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { Form } from "react-final-form";
 import { DetailsFormSegment } from "./Onboard/Onboard";
 import { StudyChoicesAFormSegment } from "./Onboard/Onboard";
+import { StudyChoicesBFormSegment } from "./Onboard/Onboard";
 
 const theme = createMuiTheme({
   palette: {
@@ -30,65 +31,159 @@ storiesOf("Forms", module)
   .add("1. Details Form", () => {
     return (
       <ThemeProvider theme={theme}>
-        <Form onSubmit={() => undefined}>
-          {({ handleSubmit, form, submitting, pristine, values, ...props }) => {
-            return (
-              <form
-                onSubmit={handleSubmit}
-                noValidate
-                style={{
-                  padding: "37px",
-                  display: "grid",
-                  gridTemplateColumns: "40px repeat(11, 1fr)",
-                  fontFamily: "Raleway"
-                }}
-              >
-                <DetailsFormSegment>
-                  <div style={{ marginTop: "29px", gridColumn: "2 / span 11" }}>
-                    <button type="submit">Next: Study Choices</button>
-                  </div>
-                </DetailsFormSegment>
-                <pre style={{ gridColumn: "2 / span 12", marginTop: "25px" }}>
-                  {JSON.stringify(values, undefined, 2)}
-                </pre>
-              </form>
-            );
+        <div
+          style={{
+            width: "1140px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 65px)",
+            gridColumnGap: "30px"
           }}
-        </Form>
+        >
+          <Form onSubmit={() => undefined}>
+            {({
+              handleSubmit,
+              form,
+              submitting,
+              pristine,
+              values,
+              ...props
+            }) => {
+              return (
+                <form
+                  onSubmit={handleSubmit}
+                  noValidate
+                  style={{
+                    marginLeft: "65px",
+                    gridColumn: "1 / span 11",
+                    display: "grid",
+                    gridTemplateColumns: "40px repeat(11, 1fr)",
+                    fontFamily: "Raleway"
+                  }}
+                >
+                  <DetailsFormSegment>
+                    <div
+                      style={{ marginTop: "29px", gridColumn: "2 / span 11" }}
+                    >
+                      <button type="submit">Next: Study Choices</button>
+                    </div>
+                  </DetailsFormSegment>
+                  <pre style={{ gridColumn: "2 / span 12", marginTop: "25px" }}>
+                    {JSON.stringify(values, undefined, 2)}
+                  </pre>
+                </form>
+              );
+            }}
+          </Form>
+        </div>
       </ThemeProvider>
     );
   })
-  .add("2. Study Choices Form A", () => {
+  .add("2.A Study Choices Form A", () => {
     return (
       <ThemeProvider theme={theme}>
-        <Form onSubmit={() => undefined}>
-          {({ handleSubmit, form, submitting, pristine, values, ...props }) => {
-            return (
-              <form
-                onSubmit={handleSubmit}
-                noValidate
-                style={{
-                  padding: "37px",
-                  display: "grid",
-                  gridTemplateColumns: "40px repeat(11, 1fr)",
-                  fontFamily: "Raleway"
-                }}
-              >
-                <StudyChoicesAFormSegment>
-                  <div style={{ marginTop: "73px", gridColumn: "2 / span 11" }}>
-                    <button type="button" style={{ marginRight: "21px" }}>
-                      Back
-                    </button>
-                    <button type="submit">Next</button>
-                  </div>
-                </StudyChoicesAFormSegment>
-                <pre style={{ gridColumn: "2 / span 12", marginTop: "25px" }}>
-                  {JSON.stringify(values, undefined, 2)}
-                </pre>
-              </form>
-            );
+        <div
+          style={{
+            width: "1140px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 65px)",
+            gridColumnGap: "30px"
           }}
-        </Form>
+        >
+          <Form onSubmit={() => undefined}>
+            {({
+              handleSubmit,
+              form,
+              submitting,
+              pristine,
+              values,
+              ...props
+            }) => {
+              return (
+                <form
+                  onSubmit={handleSubmit}
+                  noValidate
+                  style={{
+                    marginLeft: "65px",
+                    gridColumn: "1 / span 11",
+                    display: "grid",
+                    gridTemplateColumns: "40px repeat(11, 1fr)",
+                    fontFamily: "Raleway"
+                  }}
+                >
+                  <StudyChoicesAFormSegment>
+                    <div
+                      style={{ marginTop: "73px", gridColumn: "2 / span 11" }}
+                    >
+                      <button type="button" style={{ marginRight: "21px" }}>
+                        Back
+                      </button>
+                      <button type="submit">Next</button>
+                    </div>
+                  </StudyChoicesAFormSegment>
+                  <pre style={{ gridColumn: "2 / span 12", marginTop: "25px" }}>
+                    {JSON.stringify(values, undefined, 2)}
+                  </pre>
+                </form>
+              );
+            }}
+          </Form>
+        </div>
+      </ThemeProvider>
+    );
+  })
+  .add("2.B Study Choices Form B", () => {
+    return (
+      <ThemeProvider theme={theme}>
+        <div
+          style={{
+            width: "1140px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 65px)",
+            gridColumnGap: "30px"
+          }}
+        >
+          <Form onSubmit={() => undefined}>
+            {({
+              handleSubmit,
+              form,
+              submitting,
+              pristine,
+              values,
+              ...props
+            }) => {
+              return (
+                <form
+                  onSubmit={handleSubmit}
+                  noValidate
+                  style={{
+                    marginLeft: "65px",
+                    gridColumn: "1 / span 11",
+                    display: "grid",
+                    gridTemplateColumns: "40px repeat(11, 1fr)",
+                    fontFamily: "Raleway"
+                  }}
+                >
+                  <StudyChoicesBFormSegment>
+                    <div
+                      style={{ marginTop: "73px", gridColumn: "2 / span 11" }}
+                    >
+                      <button type="button" style={{ marginRight: "21px" }}>
+                        Back
+                      </button>
+                      <button type="submit">Next</button>
+                    </div>
+                  </StudyChoicesBFormSegment>
+                  <pre style={{ gridColumn: "2 / span 12", marginTop: "25px" }}>
+                    {JSON.stringify(values, undefined, 2)}
+                  </pre>
+                </form>
+              );
+            }}
+          </Form>
+        </div>
       </ThemeProvider>
     );
   });

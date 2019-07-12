@@ -194,6 +194,19 @@ export const DetailsFormSegment = ({ children }) => {
 };
 
 export const StudyChoicesAFormSegment = ({ children }) => {
+  const startPeriods = [
+    { name: "6", label: "6 months" },
+    { name: "12", label: "1 year" },
+    { name: "24", label: "2 years" },
+    { name: "36", label: "3 years" }
+  ];
+  const studyLevels = [
+    { name: "bachelors", label: "Bachelors" },
+    { name: "masters", label: "Masters" },
+    { name: "mba", label: "MBA" },
+    { name: "pathways", label: "Pathways" },
+    { name: "online", label: "Online" }
+  ];
   return (
     <React.Fragment>
       <h1 className={styles.header_sequence}>2.</h1>
@@ -214,7 +227,7 @@ export const StudyChoicesAFormSegment = ({ children }) => {
           return (
             <div
               className={styles.field_container}
-              style={{ marginTop: "30px" }}
+              style={{ marginTop: "30px", gridColumn: "2 / span 11" }}
             >
               <label
                 className={clsx(styles.label, {
@@ -225,38 +238,23 @@ export const StudyChoicesAFormSegment = ({ children }) => {
               >
                 {label}
               </label>
-              <div style={{ display: "flex" }}>
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="6 months"
-                  value="6"
-                  onChange={onChange}
-                  style={{ marginRight: "13px" }}
-                />
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="1 year"
-                  value="12"
-                  onChange={onChange}
-                  style={{ marginRight: "13px" }}
-                />
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="2 years"
-                  value="24"
-                  onChange={onChange}
-                  style={{ marginRight: "13px" }}
-                />
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="3 years"
-                  value="36"
-                  onChange={onChange}
-                />
+              <div>
+                {startPeriods.map(
+                  ({ name: switchName, label: switchLabel }, idx) => (
+                    <Switch
+                      key={`${label}_${switchLabel}`}
+                      name={name}
+                      type="radio"
+                      label={switchLabel}
+                      value={switchName}
+                      onChange={onChange}
+                      style={{
+                        marginRight:
+                          idx === startPeriods.length - 1 ? 0 : "13px"
+                      }}
+                    />
+                  )
+                )}
               </div>
             </div>
           );
@@ -273,7 +271,7 @@ export const StudyChoicesAFormSegment = ({ children }) => {
           return (
             <div
               className={styles.field_container}
-              style={{ marginTop: "52px" }}
+              style={{ marginTop: "52px", gridColumn: "2 / span 11" }}
             >
               <label
                 className={clsx(styles.label, {
@@ -284,51 +282,146 @@ export const StudyChoicesAFormSegment = ({ children }) => {
               >
                 {label}
               </label>
-              <div style={{ display: "flex" }}>
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="Bachelors"
-                  value="bachelors"
-                  onChange={onChange}
-                  style={{ marginRight: "13px" }}
-                />
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="Masters"
-                  value="masters"
-                  onChange={onChange}
-                  style={{ marginRight: "13px" }}
-                />
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="MBA"
-                  value="mba"
-                  onChange={onChange}
-                  style={{ marginRight: "13px" }}
-                />
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="Pathways"
-                  value="pathways"
-                  onChange={onChange}
-                  style={{ marginRight: "13px" }}
-                />
-                <Switch
-                  name={name}
-                  type="radio"
-                  label="Online"
-                  value="online"
-                  onChange={onChange}
-                />
+              <div>
+                {studyLevels.map(
+                  ({ name: switchName, label: switchLabel }, idx) => (
+                    <Switch
+                      key={`${label}_${switchLabel}`}
+                      name={name}
+                      type="radio"
+                      label={switchLabel}
+                      value={switchName}
+                      onChange={onChange}
+                      style={{
+                        marginRight: idx === studyLevels.length - 1 ? 0 : "13px"
+                      }}
+                    />
+                  )
+                )}
               </div>
             </div>
           );
         }}
       </Field>
+      {children}
+    </React.Fragment>
+  );
+};
+
+export const StudyChoicesBFormSegment = ({ children }) => {
+  const subjects = [
+    { name: "arts", label: "Arts" },
+    { name: "architecture", label: "Architecture" },
+    { name: "business", label: "Business" },
+    { name: "engineering", label: "Engineering" },
+    { name: "law", label: "Law" },
+    { name: "social_science", label: "Social Science" },
+    { name: "sports", label: "Sports" },
+    { name: "stem", label: "STEM" },
+    { name: "education", label: "Education" },
+    { name: "computer_science", label: "Computer Science" },
+    { name: "mathematics", label: "Mathematics" }
+  ];
+  const locations = [
+    { name: "usa", label: "USA" },
+    { name: "uk", label: "United Kingdom" },
+    { name: "ca", label: "Canada" },
+    { name: "au", label: "Australia" },
+    { name: "de", label: "Germany" }
+  ];
+  return (
+    <React.Fragment>
+      <h1 className={styles.header_sequence}>2.</h1>
+      <h1 className={styles.header_text}>Study Choices</h1>
+      <h4>Start Period / Study Level / Subject / Location</h4>
+      <Field name="subject" type="radio" label="Subject">
+        {({
+          input: { name, value, onChange, ...restInput },
+          meta,
+          label,
+          formControlProps,
+          ...rest
+        }) => {
+          return (
+            <div
+              className={styles.field_container}
+              style={{ marginTop: "30px", gridColumn: "2 / span 11" }}
+            >
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={name}
+                style={{ marginBottom: "24px" }}
+              >
+                {label}
+              </label>
+              <div>
+                {subjects.map(
+                  ({ name: subjectName, label: subjectLabel }, idx) => (
+                    <Switch
+                      key={`${label}_${subjectLabel}`}
+                      name={name}
+                      type="radio"
+                      label={subjectLabel}
+                      value={subjectName}
+                      onChange={onChange}
+                      style={{
+                        marginRight: idx === subjects.length - 1 ? 0 : "13px",
+                        marginBottom: "10px"
+                      }}
+                    />
+                  )
+                )}
+              </div>
+            </div>
+          );
+        }}
+      </Field>
+      <Field name="lcoation" type="radio" label="Location">
+        {({
+          input: { name, value, onChange, ...restInput },
+          meta,
+          label,
+          formControlProps,
+          ...rest
+        }) => {
+          return (
+            <div
+              className={styles.field_container}
+              style={{ marginTop: "30px", gridColumn: "2 / span 11" }}
+            >
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={name}
+                style={{ marginBottom: "24px" }}
+              >
+                {label}
+              </label>
+              <div>
+                {locations.map(
+                  ({ name: subjectName, label: locationLabel }, idx) => (
+                    <Switch
+                      key={`${label}_${locationLabel}`}
+                      name={name}
+                      type="radio"
+                      label={locationLabel}
+                      value={subjectName}
+                      onChange={onChange}
+                      style={{
+                        marginRight: idx === locations.length - 1 ? 0 : "13px"
+                      }}
+                    />
+                  )
+                )}
+              </div>
+            </div>
+          );
+        }}
+      </Field>
+
       {children}
     </React.Fragment>
   );

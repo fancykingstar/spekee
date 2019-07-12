@@ -13,8 +13,8 @@ const StyledSwitch = ({ children }) => (
   <div className={styles.styled_switch}>{children}</div>
 );
 
-const Switch = ({ className, style, name, type, label, value, onChange }) => (
-  <label className={className} style={style}>
+const Switch = ({ style, name, type, label, value, onChange }) => (
+  <label className={styles.container} style={style}>
     <SwitchContainer>
       <HiddenSwitch name={name} type={type} value={value} onChange={onChange} />
       <StyledSwitch>{label}</StyledSwitch>

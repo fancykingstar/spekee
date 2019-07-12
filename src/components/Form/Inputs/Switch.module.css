@@ -22,6 +22,7 @@
   border: 2px solid #979797;
   border-radius: 24px;
   padding: 0 20px;
+  box-sizing: border-box;
   height: 48px;
   min-width: 147px;
   display: flex;
@@ -30,6 +31,7 @@
   color: #2f5bea;
   background-color: #ffffff;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 .hidden_switch:focus + .styled_switch,
