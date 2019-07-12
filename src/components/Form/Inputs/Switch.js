@@ -5,19 +5,19 @@ const SwitchContainer = ({ className, children }) => (
   <div className={styles.container}>{children}</div>
 );
 
-const HiddenSwitch = ({ type, ...rest }) => (
-  <input className={styles.hidden_switch} type={type} {...rest} />
+const HiddenSwitch = props => (
+  <input className={styles.hidden_switch} {...props} />
 );
 
-const StyledSwitch = ({ checked, children }) => (
+const StyledSwitch = ({ children }) => (
   <div className={styles.styled_switch}>{children}</div>
 );
 
-const Switch = ({ className, type, checked, label, ...props }) => (
-  <label>
-    <SwitchContainer className={className}>
-      <HiddenSwitch type={type} checked={checked} {...props} />
-      <StyledSwitch checked={checked}>{label}</StyledSwitch>
+const Switch = ({ className, style, name, type, label, value, onChange }) => (
+  <label className={className} style={style}>
+    <SwitchContainer>
+      <HiddenSwitch name={name} type={type} value={value} onChange={onChange} />
+      <StyledSwitch>{label}</StyledSwitch>
     </SwitchContainer>
   </label>
 );
