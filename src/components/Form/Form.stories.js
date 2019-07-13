@@ -333,14 +333,31 @@ storiesOf("Forms", module)
                 >
                   <BlockChainFormSegment>
                     <div
-                      style={{ marginTop: "49px", gridColumn: "2 / span 11" }}
+                      style={{
+                        marginTop: "49px",
+                        gridColumn: "2 / span 11",
+                        display: "flex"
+                      }}
                     >
                       <button type="button" style={{ marginRight: "21px" }}>
                         Back
                       </button>
-                      <button type="submit" style={{ width: "266px" }}>
+                      <button
+                        type="submit"
+                        style={{ marginRight: "20px", width: "266px" }}
+                      >
                         Submit
                       </button>
+                      <span
+                        style={{
+                          width: "300px",
+                          fontStyle: "italic",
+                          color: "#adadad"
+                        }}
+                      >
+                        Next Step: You will receive an OTP to verify your
+                        account.
+                      </span>
                     </div>
                   </BlockChainFormSegment>
                   <pre style={{ gridColumn: "2 / span 12", marginTop: "25px" }}>
