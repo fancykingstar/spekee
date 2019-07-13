@@ -124,8 +124,10 @@ input[type="text"]:invalid {
   color: #adadad;
 }
 
+.consent_checkbox_container {
+  align-items: flex-start !important;
+}
 .consent_checkbox {
-  margin-left: -10px !important;
   margin-top: -10px !important;
 }
 

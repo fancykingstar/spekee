@@ -961,17 +961,18 @@ export const BlockChainFormSegment = ({ children }) => {
               >
                 {label}
               </label>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <Checkbox
-                  classes={{ root: styles.consent_checkbox }}
-                  {...input}
-                />
-                <label htmlFor={input.name}>
-                  Possimus et et vitae. Aspernatur qui voluptas et sit tenetur
+              <FormControlLabel
+                classes={{ root: styles.consent_checkbox_container }}
+                control={
+                  <Checkbox
+                    classes={{ root: styles.consent_checkbox }}
+                    {...input}
+                  />
+                }
+                label="Possimus et et vitae. Aspernatur qui voluptas et sit tenetur
                   et voluptate. In nostrum repellendus. Reprehenderit hic et
-                  animi nam itaque suscipit aliquam.
-                </label>
-              </div>
+                  animi nam itaque suscipit aliquam."
+              />
             </div>
           );
         }}
