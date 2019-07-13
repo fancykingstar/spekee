@@ -933,7 +933,13 @@ export const BlockChainFormSegment = ({ children }) => {
                     );
                   }}
                 </Field>
-                <span style={{ width: "322px" }}>
+                <span
+                  style={{
+                    width: "322px",
+                    fontStyle: "italic",
+                    color: "#adadad"
+                  }}
+                >
                   This will be used for sending the OTP and other security
                   messages.
                 </span>
