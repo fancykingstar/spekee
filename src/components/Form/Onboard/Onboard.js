@@ -4,6 +4,7 @@ import styles from "./Onboard.module.css";
 import { Form, Field } from "react-final-form";
 import Paper from "@material-ui/core/Paper";
 import Radio from "@material-ui/core/Radio";
+import Checkbox from "@material-ui/core/Checkbox";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "../Inputs/Switch";
@@ -748,6 +749,222 @@ export const SuccessTeamBFormSegment = ({ children }) => {
                     />
                   )
                 )}
+              </div>
+            </div>
+          );
+        }}
+      </Field>
+
+      {children}
+    </React.Fragment>
+  );
+};
+
+export const BlockChainFormSegment = ({ children }) => {
+  return (
+    <React.Fragment>
+      <h1 className={styles.header_sequence}>4.</h1>
+      <h1 className={styles.header_text}>Blockchain Account</h1>
+      <h4 style={{ marginTop: "26px" }}>
+        Create your first education blockchain account with us!
+      </h4>
+      <h4 style={{ marginTop: "26px" }}>
+        This account will store your certificates, transcripts and other
+        documents needed for university application, so we recommend that you
+        use correct details below for the account sign-up.
+      </h4>
+      <Field name="email" type="email" label="Email">
+        {({ input, meta, label, formControlProps, ...rest }) => {
+          return (
+            <div
+              className={styles.field_container}
+              style={{ marginTop: "30px" }}
+            >
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={input.name}
+              >
+                {label}
+              </label>
+              <div className={styles.input_container}>
+                <fieldset
+                  aria-hidden="true"
+                  className={clsx(styles.outline, {
+                    [styles.active]: meta.active,
+                    [styles.error]: showError(meta)
+                  })}
+                />
+                <input
+                  id={input.name}
+                  {...input}
+                  className={clsx({ [styles.error]: showError(meta) })}
+                />
+              </div>
+              {showError(meta) && <p>{meta.error || meta.submitError}</p>}
+            </div>
+          );
+        }}
+      </Field>
+      <Field name="password" type="password" label="Password">
+        {({ input, meta, label, formControlProps, ...rest }) => {
+          return (
+            <div
+              className={styles.field_container}
+              style={{ marginTop: "24px" }}
+            >
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={input.name}
+              >
+                {label}
+              </label>
+              <div className={styles.input_container}>
+                <fieldset
+                  aria-hidden="true"
+                  className={clsx(styles.outline, {
+                    [styles.active]: meta.active,
+                    [styles.error]: showError(meta)
+                  })}
+                />
+                <input
+                  id={input.name}
+                  {...input}
+                  className={clsx({ [styles.error]: showError(meta) })}
+                />
+              </div>
+              {showError(meta) && <p>{meta.error || meta.submitError}</p>}
+            </div>
+          );
+        }}
+      </Field>
+      <Field name="confirmPassword" type="password" label="Confirm Password">
+        {({ input, meta, label, formControlProps, ...rest }) => {
+          return (
+            <div style={{ marginTop: "24px", gridColumn: "7 / span 4" }}>
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={input.name}
+              >
+                {label}
+              </label>
+              <div className={styles.input_container}>
+                <fieldset
+                  aria-hidden="true"
+                  className={clsx(styles.outline, {
+                    [styles.active]: meta.active,
+                    [styles.error]: showError(meta)
+                  })}
+                />
+                <input
+                  id={input.name}
+                  {...input}
+                  className={clsx({ [styles.error]: showError(meta) })}
+                />
+              </div>
+              {showError(meta) && <p>{meta.error || meta.submitError}</p>}
+            </div>
+          );
+        }}
+      </Field>
+      <Field name="mobile" type="text" label="Valid mobile number">
+        {({ input, meta, label, formControlProps, ...rest }) => {
+          return (
+            <div style={{ marginTop: "24px", gridColumn: "2 / span 6" }}>
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={input.name}
+              >
+                {label}
+              </label>
+              <div style={{ display: "flex" }}>
+                <Field name="mobile.countryCode" type="text">
+                  {({ input, meta, label, formControlProps, ...rest }) => {
+                    return (
+                      <div
+                        className={clsx(
+                          styles.input_container,
+                          styles.country_code_plus
+                        )}
+                      >
+                        <fieldset
+                          aria-hidden="true"
+                          className={clsx(styles.outline, {
+                            [styles.active]: meta.active,
+                            [styles.error]: showError(meta)
+                          })}
+                        />
+                        <input
+                          id={input.name}
+                          {...input}
+                          className={clsx({ [styles.error]: showError(meta) })}
+                        />
+                      </div>
+                    );
+                  }}
+                </Field>
+                <Field name="mobile.number" type="text">
+                  {({ input, meta, label, formControlProps, ...rest }) => {
+                    return (
+                      <div
+                        className={styles.input_container}
+                        style={{ marginRight: "17px", width: "147px" }}
+                      >
+                        <fieldset
+                          aria-hidden="true"
+                          className={clsx(styles.outline, {
+                            [styles.active]: meta.active,
+                            [styles.error]: showError(meta)
+                          })}
+                        />
+                        <input
+                          id={input.name}
+                          {...input}
+                          className={clsx({ [styles.error]: showError(meta) })}
+                        />
+                      </div>
+                    );
+                  }}
+                </Field>
+                <span style={{ width: "322px" }}>
+                  This will be used for sending the OTP and other security
+                  messages.
+                </span>
+              </div>
+              {showError(meta) && <p>{meta.error || meta.submitError}</p>}
+            </div>
+          );
+        }}
+      </Field>
+      <Field name="mailConsent" type="checkbox" label="GDPR Disclaimer">
+        {({ input, meta, label, formControlProps, ...rest }) => {
+          return (
+            <div style={{ marginTop: "73px", gridColumn: "2 / span 9" }}>
+              <label
+                className={clsx(styles.label, {
+                  [styles.error]: showError(meta)
+                })}
+                htmlFor={input.name}
+              >
+                {label}
+              </label>
+              <div style={{ display: "flex", alignItems: "flex-start" }}>
+                <Checkbox
+                  classes={{ root: styles.consent_checkbox }}
+                  {...input}
+                />
+                <label htmlFor={input.name}>
+                  Possimus et et vitae. Aspernatur qui voluptas et sit tenetur
+                  et voluptate. In nostrum repellendus. Reprehenderit hic et
+                  animi nam itaque suscipit aliquam.
+                </label>
               </div>
             </div>
           );

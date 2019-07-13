@@ -11,6 +11,7 @@ import { StudyChoicesAFormSegment } from "./Onboard/Onboard";
 import { StudyChoicesBFormSegment } from "./Onboard/Onboard";
 import { SuccessTeamAFormSegment } from "./Onboard/Onboard";
 import { SuccessTeamBFormSegment } from "./Onboard/Onboard";
+import { BlockChainFormSegment } from "./Onboard/Onboard";
 
 const theme = createMuiTheme({
   palette: {
@@ -286,6 +287,62 @@ storiesOf("Forms", module)
                       <button type="submit">Next: Blockchain Account</button>
                     </div>
                   </SuccessTeamBFormSegment>
+                  <pre style={{ gridColumn: "2 / span 12", marginTop: "25px" }}>
+                    {JSON.stringify(values, undefined, 2)}
+                  </pre>
+                </form>
+              );
+            }}
+          </Form>
+        </div>
+      </ThemeProvider>
+    );
+  })
+  .add("4 Blockchain Account Form", () => {
+    return (
+      <ThemeProvider theme={theme}>
+        <div
+          style={{
+            width: "1140px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 65px)",
+            gridColumnGap: "30px"
+          }}
+        >
+          <Form onSubmit={() => undefined}>
+            {({
+              handleSubmit,
+              form,
+              submitting,
+              pristine,
+              values,
+              ...props
+            }) => {
+              return (
+                <form
+                  onSubmit={handleSubmit}
+                  noValidate
+                  style={{
+                    marginLeft: "65px",
+                    gridColumn: "1 / span 11",
+                    display: "grid",
+                    gridTemplateColumns: "40px repeat(11, 1fr)",
+                    fontFamily: "Raleway"
+                  }}
+                >
+                  <BlockChainFormSegment>
+                    <div
+                      style={{ marginTop: "49px", gridColumn: "2 / span 11" }}
+                    >
+                      <button type="button" style={{ marginRight: "21px" }}>
+                        Back
+                      </button>
+                      <button type="submit" style={{ width: "266px" }}>
+                        Submit
+                      </button>
+                    </div>
+                  </BlockChainFormSegment>
                   <pre style={{ gridColumn: "2 / span 12", marginTop: "25px" }}>
                     {JSON.stringify(values, undefined, 2)}
                   </pre>

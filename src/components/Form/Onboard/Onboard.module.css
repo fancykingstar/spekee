@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600&display=swap");
 .root {
   padding: 37px;
   display: grid;
@@ -57,6 +57,18 @@ h4 {
   cursor: text;
 }
 
+.input_container.country_code_plus {
+  margin-right: 12px;
+  padding-left: 13px;
+  width: 68px;
+}
+.input_container.country_code_plus:before {
+  content: "+";
+}
+.input_container.country_code_plus > input {
+  padding-left: 0;
+}
+
 .outline {
   padding-left: 27.375px;
   border-style: solid;
@@ -78,7 +90,8 @@ h4 {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
   padding: 18.5px 14px;
   border: 0;
   height: 1.1875em;
@@ -109,6 +122,11 @@ input[type="text"]:invalid {
   font-family: Raleway;
   font-weight: 500;
   color: #adadad;
+}
+
+.consent_checkbox {
+  margin-left: -10px !important;
+  margin-top: -10px !important;
 }
 
 button {
