@@ -86,7 +86,7 @@ export const DetailsFormSegment = ({ children }) => {
           );
         }}
       </Field>
-      <Field name="gender" label="Gender">
+      <Field name="gender" type="radio" label="Gender">
         {({
           input: { checked, value, name, onChange, ...restInput },
           meta,
@@ -137,7 +137,7 @@ export const DetailsFormSegment = ({ children }) => {
           );
         }}
       </Field>
-      <Field name="age" label="Age(Yrs)">
+      <Field name="age" type="radio" label="Age(Yrs)">
         {({
           input: { checked, value, name, onChange, ...restInput },
           meta,
@@ -213,11 +213,7 @@ export const StudyChoicesAFormSegment = ({ children }) => {
       <h1 className={styles.header_sequence}>2.</h1>
       <h1 className={styles.header_text}>Study Choices</h1>
       <h4>Start Period / Study Level / Subject / Location</h4>
-      <Field
-        name="startPeriod"
-        type="radio"
-        label="Start period of university education"
-      >
+      <Field name="startPeriod" label="Start period of university education">
         {({
           input: { name, value, onChange, ...restInput },
           meta,
@@ -242,18 +238,23 @@ export const StudyChoicesAFormSegment = ({ children }) => {
               <div>
                 {startPeriods.map(
                   ({ name: switchName, label: switchLabel }, idx) => (
-                    <Switch
-                      key={`${label}_${switchLabel}`}
-                      name={name}
-                      type="radio"
-                      label={switchLabel}
-                      value={switchName}
-                      onChange={onChange}
-                      style={{
-                        marginRight:
-                          idx === startPeriods.length - 1 ? 0 : "13px"
-                      }}
-                    />
+                    <Field name={name} value={switchName} type="radio">
+                      {({ input: { name, value, onChange, ...restInput } }) => (
+                        <Switch
+                          key={`${label}_${switchLabel}`}
+                          name={name}
+                          type="radio"
+                          label={switchLabel}
+                          value={switchName}
+                          onChange={onChange}
+                          {...restInput}
+                          style={{
+                            marginRight:
+                              idx === startPeriods.length - 1 ? 0 : "13px"
+                          }}
+                        />
+                      )}
+                    </Field>
                   )
                 )}
               </div>
