@@ -50,16 +50,14 @@ export default class Wizard extends React.Component {
   }
   next = values =>
     this.setState(state => {
-      const { page, steps: prevSteps } = state;
+      const { page, steps } = state;
       const activePage = React.Children.toArray(this.props.children)[page];
       const currentPageGroup = activePage.props.group;
-      const { total, progress, progressIncrement } = prevSteps[
-        currentPageGroup
-      ];
+      const { total, progress, progressIncrement } = steps[currentPageGroup];
       return {
         page: Math.min(page + 1, this.props.children.length - 1),
         steps: {
-          ...prevSteps,
+          ...steps,
           [currentPageGroup]: {
             total,
             progress: Math.min(progress + progressIncrement, 100),
@@ -72,16 +70,27 @@ export default class Wizard extends React.Component {
 
   previous = () =>
     this.setState(state => {
-      const { page, steps: prevSteps } = state;
-      const activePage = React.Children.toArray(this.props.children)[page];
+      const { page, steps } = state;
+      const childrenArray = React.Children.toArray(this.props.children);
+      const activePage = childrenArray[page];
       const currentPageGroup = activePage.props.group;
-      const { total, progress, progressIncrement } = prevSteps[
-        currentPageGroup
-      ];
+      const prevPage = childrenArray[Math.max(page - 1, 0)];
+      const prevPageGroup = prevPage.props.group;
+      const { total, progress, progressIncrement } = steps[currentPageGroup];
       return {
         page: Math.max(page - 1, 0),
         steps: {
-          ...prevSteps,
+          ...steps,
+          [prevPageGroup]:
+            prevPageGroup === currentPageGroup
+              ? steps[prevPageGroup]
+              : {
+                  total: steps[prevPageGroup].total,
+                  progress:
+                    steps[prevPageGroup].progress -
+                    steps[prevPageGroup].progressIncrement,
+                  progressIncrement: steps[prevPageGroup].progressIncrement
+                },
           [currentPageGroup]: {
             total,
             progress: Math.max(progress - progressIncrement, 0),
