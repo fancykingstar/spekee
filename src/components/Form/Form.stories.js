@@ -12,6 +12,9 @@ import { StudyChoicesBFormSegment } from "./Onboard/Onboard";
 import { SuccessTeamAFormSegment } from "./Onboard/Onboard";
 import { SuccessTeamBFormSegment } from "./Onboard/Onboard";
 import { BlockChainFormSegment } from "./Onboard/Onboard";
+import Wizard from "./Wizard";
+
+import styles from "./Form_stories.module.css";
 
 const theme = createMuiTheme({
   palette: {
@@ -367,6 +370,136 @@ storiesOf("Forms", module)
               );
             }}
           </Form>
+        </div>
+      </ThemeProvider>
+    );
+  })
+  .add("Onboard Wizard", () => {
+    return (
+      <ThemeProvider theme={theme}>
+        <div
+          style={{
+            width: "1140px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 65px)",
+            gridColumnGap: "30px"
+          }}
+        >
+          <Wizard
+            className={styles.onboard_form_container}
+            onSubmit={() => false}
+          >
+            <Wizard.Page group={0}>
+              {({ handlePrevious }) => (
+                <DetailsFormSegment>
+                  <div style={{ marginTop: "29px", gridColumn: "2 / span 11" }}>
+                    <button type="submit">Next: Study Choices</button>
+                  </div>
+                </DetailsFormSegment>
+              )}
+            </Wizard.Page>
+            <Wizard.Page group={1}>
+              {({ handlePrevious }) => (
+                <StudyChoicesAFormSegment>
+                  <div style={{ marginTop: "73px", gridColumn: "2 / span 11" }}>
+                    <button
+                      type="button"
+                      style={{ marginRight: "21px" }}
+                      onClick={handlePrevious}
+                    >
+                      Back
+                    </button>
+                    <button type="submit">Next</button>
+                  </div>
+                </StudyChoicesAFormSegment>
+              )}
+            </Wizard.Page>
+            <Wizard.Page group={1}>
+              {({ handlePrevious }) => (
+                <StudyChoicesBFormSegment>
+                  <div style={{ marginTop: "73px", gridColumn: "2 / span 11" }}>
+                    <button
+                      type="button"
+                      style={{ marginRight: "21px" }}
+                      onClick={handlePrevious}
+                    >
+                      Back
+                    </button>
+                    <button type="submit">Next: Success Team</button>
+                  </div>
+                </StudyChoicesBFormSegment>
+              )}
+            </Wizard.Page>
+            <Wizard.Page group={2}>
+              {({ handlePrevious }) => (
+                <SuccessTeamAFormSegment>
+                  <div style={{ marginTop: "82px", gridColumn: "2 / span 11" }}>
+                    <button
+                      type="button"
+                      style={{ marginRight: "21px" }}
+                      onClick={handlePrevious}
+                    >
+                      Back
+                    </button>
+                    <button type="submit">Next</button>
+                  </div>
+                </SuccessTeamAFormSegment>
+              )}
+            </Wizard.Page>
+            <Wizard.Page group={2}>
+              {({ handlePrevious }) => (
+                <SuccessTeamBFormSegment>
+                  <div style={{ marginTop: "82px", gridColumn: "2 / span 11" }}>
+                    <button
+                      type="button"
+                      style={{ marginRight: "21px" }}
+                      onClick={handlePrevious}
+                    >
+                      Back
+                    </button>
+                    <button type="submit">Next: Blockchain Account</button>
+                  </div>
+                </SuccessTeamBFormSegment>
+              )}
+            </Wizard.Page>
+            <Wizard.Page group={3}>
+              {({ handlePrevious }) => (
+                <BlockChainFormSegment>
+                  <div
+                    style={{
+                      marginTop: "49px",
+                      gridColumn: "2 / span 11",
+                      display: "flex"
+                    }}
+                  >
+                    <button
+                      type="button"
+                      style={{ marginRight: "21px" }}
+                      onClick={handlePrevious}
+                    >
+                      Back
+                    </button>
+                    <button
+                      type="submit"
+                      style={{ marginRight: "20px", width: "266px" }}
+                    >
+                      Submit
+                    </button>
+                    <span
+                      style={{
+                        width: "300px",
+                        fontStyle: "italic",
+                        color: "#adadad"
+                      }}
+                    >
+                      Next Step: You will receive an OTP to verify your account.
+                    </span>
+                  </div>
+                </BlockChainFormSegment>
+              )}
+            </Wizard.Page>
+          </Wizard>
         </div>
       </ThemeProvider>
     );
