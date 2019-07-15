@@ -14,7 +14,7 @@ const showError = ({ touched, submitError, dirtySinceLastSubmit, error }) =>
 
 export const DetailsFormSegment = ({ children }) => {
   return (
-    <React.Fragment>
+    <React.Fragment className={styles.root}>
       <h1 className={styles.header_sequence}>1.</h1>
       <h1 className={styles.header_text}>Your Details</h1>
       <h4>Name / Email / Gender / Age</h4>
@@ -209,7 +209,7 @@ export const StudyChoicesAFormSegment = ({ children }) => {
     { name: "online", label: "Online" }
   ];
   return (
-    <React.Fragment>
+    <React.Fragment className={styles.root}>
       <h1 className={styles.header_sequence}>2.</h1>
       <h1 className={styles.header_text}>Study Choices</h1>
       <h4>Start Period / Study Level / Subject / Location</h4>
@@ -332,7 +332,7 @@ export const StudyChoicesBFormSegment = ({ children }) => {
     { name: "de", label: "Germany" }
   ];
   return (
-    <React.Fragment>
+    <React.Fragment className={styles.root}>
       <h1 className={styles.header_sequence}>2.</h1>
       <h1 className={styles.header_text}>Study Choices</h1>
       <h4>Start Period / Study Level / Subject / Location</h4>
@@ -436,7 +436,7 @@ export const SuccessTeamAFormSegment = ({ children }) => {
     { name: "maybe", label: "Not Sure" }
   ];
   return (
-    <React.Fragment>
+    <React.Fragment className={styles.root}>
       <h1 className={styles.header_sequence}>3.</h1>
       <h1 className={styles.header_text}>Success Team</h1>
       <h4>Expert Counsellor / Test-Prep Help / Other Help / Study Funding</h4>
@@ -568,7 +568,7 @@ export const SuccessTeamBFormSegment = ({ children }) => {
     { name: "learnNewLanguages", label: "Learn New Languages" }
   ];
   return (
-    <React.Fragment>
+    <React.Fragment className={styles.root}>
       <h1 className={styles.header_sequence}>3.</h1>
       <h1 className={styles.header_text}>Success Team</h1>
       <h4>Expert Counsellor / Test-Prep Help / Other Help / Study Funding</h4>
@@ -763,7 +763,7 @@ export const SuccessTeamBFormSegment = ({ children }) => {
 
 export const BlockChainFormSegment = ({ children }) => {
   return (
-    <React.Fragment>
+    <React.Fragment className={styles.root}>
       <h1 className={styles.header_sequence}>4.</h1>
       <h1 className={styles.header_text}>Blockchain Account</h1>
       <h4 style={{ marginTop: "26px" }}>

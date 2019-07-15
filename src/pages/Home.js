@@ -3,7 +3,11 @@ import Typing from "react-typing-animation";
 import styles from "./Home.module.css";
 import { ReactComponent as LogoSvg } from "./logo.svg";
 import { ReactComponent as HeroSvg } from "./home_fold_1.svg";
-import { DoneAll, EuroSymbol, AssignmentInd } from "@material-ui/icons";
+import { ReactComponent as HeroSvg2 } from "./home_fold_3.svg";
+import DoneAll from "@material-ui/icons/DoneAll";
+import EuroSymbol from "@material-ui/icons/EuroSymbol";
+import AssignmentInd from "@material-ui/icons/AssignmentInd";
+import ArrowRightAlt from "@material-ui/icons/ArrowRightAlt";
 
 const Logo = () => {
 	return <LogoSvg className={styles.logo} />;
@@ -129,6 +133,19 @@ const Home = () => {
 				</div>
 				<div className={styles.join_us_container}>
 					<button className={styles.join_us}>Join us free</button>
+				</div>
+			</div>
+			<div className={styles.section_4}>
+				<h4>Live your dreams</h4>
+				<h2>It’s your time to shine.</h2>
+				<h2>We will help you do that.</h2>
+				<span>
+					Match your profile and qualifications to over 4000 Universities and
+					12000 careers. We will help you with guaranteed admissions.
+				</span>
+				<HeroSvg2 className={styles.hero_svg} />
+				<div className={styles.find_out_more_container}>
+					Find out more <ArrowRightAlt />
 				</div>
 			</div>
 		</div>
