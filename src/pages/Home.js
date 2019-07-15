@@ -3,6 +3,7 @@ import Typing from "react-typing-animation";
 import styles from "./Home.module.css";
 import { ReactComponent as LogoSvg } from "./logo.svg";
 import { ReactComponent as HeroSvg } from "./home_fold_1.svg";
+import { DoneAll, EuroSymbol, AssignmentInd } from "@material-ui/icons";
 
 const Logo = () => {
 	return <LogoSvg className={styles.logo} />;
@@ -94,26 +95,40 @@ const Home = () => {
 				</div>
 			</div>
 			<div className={styles.section_3}>
-				<div className={styles.complete_preparation}>
-					<h1>Complete Preparation</h1>
-					<h3>
+				<h4>Why Join Us?</h4>
+				<h2>One platform, solves everything</h2>
+				<div>
+					<div className={styles.circular_icon_container}>
+						<DoneAll />
+					</div>
+					<h3>Complete Preparation</h3>
+					<span>
 						Course & Recipes for Study goals, IELTS prep, Application essays &
 						more
-					</h3>
+					</span>
 				</div>
-				<div className={styles.guaranteed_funding}>
-					<h1>Guaranteed Funding</h1>
-					<h3>
+				<div>
+					<div className={styles.circular_icon_container}>
+						<EuroSymbol />
+					</div>
+					<h3>Guaranteed Funding</h3>
+					<span>
 						Through EdCoins* received when you sign-up. Cover your Application
 						or other costs
-					</h3>
+					</span>
 				</div>
-				<div className={styles.guaranteed_admit}>
-					<h1>Guaranteed Admit</h1>
-					<h3>
+				<div>
+					<div className={styles.circular_icon_container}>
+						<AssignmentInd />
+					</div>
+					<h3>Guaranteed Admit</h3>
+					<span>
 						To the best-fit University programs matching your profile and study
 						goals
-					</h3>
+					</span>
+				</div>
+				<div className={styles.join_us_container}>
+					<button className={styles.join_us}>Join us free</button>
 				</div>
 			</div>
 		</div>

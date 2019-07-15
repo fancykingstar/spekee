@@ -1,4 +1,5 @@
 .root {
 	padding-top: 30px;
 	background: url(./home_bg.svg) no-repeat top -150px right -150px;
+	height: 200vh;
 }
