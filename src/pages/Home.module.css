@@ -21,6 +21,8 @@
 	display: flex;
 	justify-content: space-between;
 	list-style: none;
+	background-color: "#ffffff";
+    box-shadow: none;
 }
 
 .login {

@@ -12,6 +12,11 @@ import ArrowRightAlt from "@material-ui/icons/ArrowRightAlt";
 import Contacts from "@material-ui/icons/Contacts";
 import People from "@material-ui/icons/People";
 import AccountBalance from "@material-ui/icons/AccountBalance";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import Navbar from './Navbar';
 
 const Logo = () => {
 	return <LogoSvg className={styles.logo} />;
@@ -69,9 +74,7 @@ const CallToAction = () => {
 const Home = () => {
 	return (
 		<div className={styles.root}>
-			<Logo />
-			<Nav />
-			<LoginButton />
+			<Navbar />
 			<h1 className={styles.hero_text}>
 				Achieve your International Career dreams
 			</h1>
