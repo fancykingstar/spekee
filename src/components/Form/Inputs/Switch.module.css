@@ -1,0 +1,43 @@
+.container {
+  display: inline-flex;
+  font-family: Raleway;
+  font-size: 18px;
+}
+
+.hidden_switch {
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clippath: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.styled_switch {
+  border: 2px solid #979797;
+  border-radius: 24px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 48px;
+  min-width: 147px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2f5bea;
+  background-color: #ffffff;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.hidden_switch:focus + .styled_switch,
+.hidden_switch:checked + .styled_switch,
+.styled_switch:hover {
+  border-color: #2f5bea;
+  font-weight: 600;
+  background-color: #e7edff;
+}

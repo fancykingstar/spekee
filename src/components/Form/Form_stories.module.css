@@ -1,0 +1,7 @@
+.onboard_form_container {
+	margin-left: 65px;
+	grid-column: 1 / span 11;
+	display: grid;
+	grid-template-columns: 40px repeat(11, 1fr);
+	font-family: Raleway;
+}
