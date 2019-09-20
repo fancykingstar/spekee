@@ -15,23 +15,14 @@ const useStyles = makeStyles(theme => ({
     },
     nav: {
         backgroundColor: "#fff",
-        boxShadow: "none",
-        marginTop: 34
-    },
-    navbar: {
-        display: 'grid',
-        gridTemplateColumns: "auto auto",
-        gridGap: 10
+        boxShadow: "none"
     },
     nav__navbar: {
-        display: 'grid',
-        gridTemplateColumns: "auto auto auto auto auto auto auto auto",
-        justifyContent: "end",
-        paddingRight: 0
+        float: "right"
     },
     nav__menu: {
-        maxWidth: 570,
-        minHeight: 21,
+        width: 570,
+        height: 21,
         fontFamily: "Raleway",
         fontSize: 18,
         fontWeight: "normal",
@@ -40,35 +31,18 @@ const useStyles = makeStyles(theme => ({
         lineHeight: "normal",
         letterSpacing: "normal",
         color: "#303133",
-        gridColumn: 1 / 8
-    },
-    nav__navbar_login: {
-        display: "gird",
-        justifyContent: "end"
+        float: "right"
     },
     nav__menu__item: {
         color: "#303133",
-        paddingLeft: 45,
-        paddingRight: 25
+        paddingLeft: 21,
+        paddingRight: 21
     },
     nav__menu__item__popover: {
         padding: theme.spacing(2),
     },
-    nav__menu_button_login: {
-        width: 159,
-        height: 46,
-        borderRadius: 5,
-        backgroundColor: "#2f5bea",
-        fontFamily: "Raleway",
-        fontSize: 18,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        fontStretch: "normal",
-        lineHeight: "normal",
-        letterSpacing: "normal",
-        color: "white",
-        marginLeft: 100
-    }
+
+>>>>>>> eb3ddbe61764d256730e8ca4d6436b1b85e405f5
 }));
 
 export default function ButtonAppBar() {
@@ -88,13 +62,14 @@ export default function ButtonAppBar() {
     }
 
     return (
+        <div className={classes.navbar}>
             <AppBar position="static" className={classes.nav}>
-                <Toolbar className={classes.navbar}>
-                    <div className={classes.nav__brand}>
+                <Toolbar>
+                    <Typography variant="h6" className={classes.nav__brand}>
                         <LogoSvg />
-                    </div>
+                    </Typography>
                     <Toolbar className={classes.nav__navbar}>
-                        <div className={classes.nav__menu}>
+                        <Typography className={classes.nav__menu}>
                             <Link href="#" className={classes.nav__menu__item}>
                                 Home
                             </Link>
@@ -105,7 +80,6 @@ export default function ButtonAppBar() {
 
                             <Link href="#"  aria-describedby={guides} variant="contained" onClick={handleClick} className={classes.nav__menu__item}>
                                 Guides
-
                             </Link>
                             <Popover
                                 id={guides}
@@ -147,12 +121,11 @@ export default function ButtonAppBar() {
                             <Link href="#" className={classes.nav__menu__item}>
                                 Recipes
                             </Link>
-                        </div>
-                        <div className={classes.nav__navbar_login}>
-                            <Button className={classes.nav__menu_button_login}>Login</Button>
-                        </div>
+                        </Typography>
+                        <Button color="inherit">Login</Button>
                     </Toolbar>
                 </Toolbar>
             </AppBar>
+        </div>
     );
 }
